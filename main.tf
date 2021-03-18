@@ -2,7 +2,7 @@ locals {
   notification_channel = var.alerting_enabled ? var.notification_channel : ""
 }
 
-resource "datadog_monitor" "toyota_datadog_monitor" {
+resource "datadog_monitor" "generic_datadog_monitor" {
   count = var.enabled ? 1 : 0
   name  = "${var.service} - ${var.name}"
   type  = var.type

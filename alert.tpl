@@ -4,5 +4,12 @@ ${alert_message}
 {{#is_recovery}}
 ${recovery_message}
 {{/is_recovery}}
-${ note == "" ? "" : "\nNote: ${note}"}${ docs == "" ? "" : "\nDocs: ${docs}"}
+%{ if note != "" ~}
+
+Note: ${note}
+%{ endif ~}
+%{ if docs != "" ~}
+
+Docs: ${docs}
+%{ endif ~}
 ${notification_channel}

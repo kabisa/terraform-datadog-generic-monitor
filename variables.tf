@@ -123,7 +123,7 @@ variable "notify_no_data" {
 
 variable "locked" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "name_prefix" {

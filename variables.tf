@@ -120,3 +120,18 @@ variable "notify_no_data" {
   type    = bool
   default = false
 }
+
+variable "locked" {
+  type    = bool
+  default = false
+}
+
+variable "name_prefix" {
+  type    = string
+  default = ""
+}
+
+variable "name_suffix" {
+  type    = string
+  default = ""
+}

@@ -4,7 +4,7 @@ locals {
 
 resource "datadog_monitor" "generic_datadog_monitor" {
   count = var.enabled ? 1 : 0
-  name  = "${var.service} - ${var.name}"
+  name  = "${var.name_prefix}${var.service} - ${var.name}${var.name_suffix}"
   type  = var.type
   query = var.query
 
@@ -39,5 +39,5 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     ok       = var.ok_threshold
   }
 
-  locked = true
+  locked = var.locked
 }

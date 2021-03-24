@@ -4,7 +4,12 @@ locals {
 
 resource "datadog_monitor" "generic_datadog_monitor" {
   count = var.enabled ? 1 : 0
-  name  = "${var.name_prefix}${var.service} - ${var.name}${var.name_suffix}"
+  name  = join(" - ", compact([
+    var.name_prefix,
+    var.service,
+    var.name,
+    var.name_suffix
+  ]))
   type  = var.type
   query = var.query
 
@@ -19,13 +24,13 @@ resource "datadog_monitor" "generic_datadog_monitor" {
   })
 
   tags = concat(
-    [
-      "terraform:true",
-      "env:${var.env}",
-      "service:${var.service}",
-      "severity:${var.severity}",
-    ],
-    var.additional_tags
+  [
+    "terraform:true",
+    "env:${var.env}",
+    "service:${var.service}",
+    "severity:${var.severity}",
+  ],
+  var.additional_tags
   )
 
   no_data_timeframe = var.no_data_timeframe

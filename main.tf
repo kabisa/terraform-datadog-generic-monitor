@@ -4,7 +4,7 @@ locals {
 
 resource "datadog_monitor" "generic_datadog_monitor" {
   count = var.enabled ? 1 : 0
-  name  = join(" - ", compact([
+  name = join(" - ", compact([
     var.name_prefix,
     var.service,
     var.name,
@@ -24,14 +24,16 @@ resource "datadog_monitor" "generic_datadog_monitor" {
   })
 
   tags = concat(
-  [
-    "terraform:true",
-    "env:${var.env}",
-    "service:${var.service}",
-    "severity:${var.severity}",
-  ],
-  var.additional_tags
+    [
+      "terraform:true",
+      "env:${var.env}",
+      "service:${var.service}",
+      "severity:${var.severity}",
+    ],
+    var.additional_tags
   )
+
+  priority = var.priority
 
   no_data_timeframe = var.no_data_timeframe
   notify_no_data    = var.notify_no_data

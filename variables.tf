@@ -45,7 +45,7 @@ variable "docs" {
 }
 
 variable "env" {
-  type    = string
+  type = string
 }
 
 variable "severity" {
@@ -84,7 +84,7 @@ variable "type" {
 
   validation {
     error_message = "Unknown datadog monitor type. See https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor for monitor types."
-    condition     = contains(
+    condition = contains(
       [
         "query alert",
         "query alert",
@@ -134,4 +134,11 @@ variable "name_prefix" {
 variable "name_suffix" {
   type    = string
   default = ""
+}
+
+variable "priority" {
+  description = "Number from 1 (high) to 5 (low)."
+
+  type    = number
+  default = null
 }

@@ -143,7 +143,7 @@ variable "priority" {
   default = null
 }
 
-variable "timeout_h" {
+variable "auto_resolve_time_h" {
   description = "Time of hours after which a triggered monitor that receives no data is automatically resolved."
 
   type    = number

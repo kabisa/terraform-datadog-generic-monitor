@@ -142,3 +142,10 @@ variable "priority" {
   type    = number
   default = null
 }
+
+variable "auto_resolve_time_h" {
+  description = "Time of hours after which a triggered monitor that receives no data is automatically resolved."
+
+  type    = number
+  default = null
+}

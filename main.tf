@@ -37,6 +37,7 @@ resource "datadog_monitor" "generic_datadog_monitor" {
 
   no_data_timeframe = var.no_data_timeframe
   notify_no_data    = var.notify_no_data
+  timeout_h         = var.auto_resolve_time_h
 
   require_full_window = var.require_full_window
 

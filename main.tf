@@ -1,5 +1,16 @@
 locals {
   notification_channel = var.alerting_enabled ? var.notification_channel : ""
+  tag_specials_regex   = "/[^a-z0-9\\-_:.\\/]/"
+
+  tags = concat(
+    [
+      "terraform:true",
+      "env:${var.env}",
+      "service:${var.service}",
+      "severity:${var.severity}",
+    ],
+    var.additional_tags
+  )
 }
 
 resource "datadog_monitor" "generic_datadog_monitor" {
@@ -23,15 +34,24 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     notification_channel = local.notification_channel
   })
 
-  tags = concat(
-    [
-      "terraform:true",
-      "env:${var.env}",
-      "service:${var.service}",
-      "severity:${var.severity}",
-    ],
-    var.additional_tags
-  )
+  tags = [
+    for tag
+    in local.tags :
+    replace(
+      replace(
+        replace(
+          replace(lower(tag), local.tag_specials_regex, "_")
+          ,
+          "/_+/",
+          "_"
+        ),
+        "/^[^a-z]/",
+        ""
+      ),
+      "/_$/",
+      ""
+    )
+  ]
 
   priority = var.priority
 

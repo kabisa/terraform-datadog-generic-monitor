@@ -1,5 +1,45 @@
 locals {
   notification_channel = var.alerting_enabled ? var.notification_channel : ""
+  tag_specials_regex   = "/[^a-z0-9\\-_:.\\/]/"
+
+  tags = concat(
+    [
+      "terraform:true",
+      "env:${var.env}",
+      "service:${var.service}",
+      "severity:${var.severity}",
+    ],
+    var.additional_tags
+  )
+
+  # Normalize all the tags according to best practices defined by Datadog. The
+  # following changes are made:
+  #
+  # * Make all characters lowercase.
+  # * Replace special characters with an underscore.
+  # * Remove duplicate underscores.
+  # * Remove any non-letter leading characters.
+  # * Remove any trailing underscores.
+  #
+  # See: https://docs.datadoghq.com/developers/guide/what-best-practices-are-recommended-for-naming-metrics-and-tags
+  normalized_tags = [
+    for tag
+    in local.tags :
+    replace(
+      replace(
+        replace(
+          replace(lower(tag), local.tag_specials_regex, "_")
+          ,
+          "/_+/",
+          "_"
+        ),
+        "/^[^a-z]+/",
+        ""
+      ),
+      "/_+$/",
+      ""
+    )
+  ]
 }
 
 resource "datadog_monitor" "generic_datadog_monitor" {
@@ -23,16 +63,7 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     notification_channel = local.notification_channel
   })
 
-  tags = concat(
-    [
-      "terraform:true",
-      "env:${var.env}",
-      "service:${var.service}",
-      "severity:${var.severity}",
-    ],
-    var.additional_tags
-  )
-
+  tags = local.normalized_tags
   priority = var.priority
 
   no_data_timeframe = var.no_data_timeframe

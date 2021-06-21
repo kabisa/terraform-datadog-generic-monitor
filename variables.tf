@@ -149,3 +149,25 @@ variable "auto_resolve_time_h" {
   type    = number
   default = null
 }
+
+variable "alert_lifecycle" {
+  description = <<-DOC
+    Allows you to set the alert_lifecycle tag. Should be one of the following
+    values if set:
+
+    * active: This alert is considered active until a recovery is sent. This
+      should be used when an incident persists over a certain timespan.
+    * passive: A recovery is not necessary. This should be used when an incident
+      happens at a certain point in time.
+
+    If this is not set, or set to null, no alert_lifecycle tag will be added.
+  DOC
+
+  type    = string
+  default = null
+
+  validation {
+    condition     = contains([null, "active", "passive"], var.alert_lifecycle)
+    error_message = "The alert lifecycle should be either passive or active if set"
+  }
+}

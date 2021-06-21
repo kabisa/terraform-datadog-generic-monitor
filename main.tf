@@ -23,16 +23,7 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     notification_channel = local.notification_channel
   })
 
-  tags = concat(
-    [
-      "terraform:true",
-      "env:${var.env}",
-      "service:${var.service}",
-      "severity:${var.severity}",
-    ],
-    var.additional_tags
-  )
-
+  tags     = local.normalized_tags
   priority = var.priority
 
   no_data_timeframe = var.no_data_timeframe

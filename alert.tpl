@@ -12,4 +12,7 @@ Note: ${note}
 
 Docs: ${docs}
 %{ endif ~}
+%{ if custom_message != "" ~}
+${custom_message}
+%{ endif ~}
 ${notification_channel}

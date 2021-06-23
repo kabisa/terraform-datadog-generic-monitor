@@ -57,13 +57,14 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     alert_message    = var.alert_message
     recovery_message = var.recovery_message
 
-    note = var.note
-    docs = var.docs
+    note           = var.note
+    docs           = var.docs
+    custom_message = var.custom_message
 
     notification_channel = local.notification_channel
   })
 
-  tags = local.normalized_tags
+  tags     = local.normalized_tags
   priority = var.priority
 
   no_data_timeframe = var.no_data_timeframe

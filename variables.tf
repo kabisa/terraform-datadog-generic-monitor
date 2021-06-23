@@ -149,3 +149,9 @@ variable "auto_resolve_time_h" {
   type    = number
   default = null
 }
+
+variable "custom_message" {
+  description = "This field give the option to put in custom text. Both 'note' and 'docs' are prefixed in the template with 'note:' and 'docs:' respectively. 'custom_message' allows for free format"
+  type        = string
+  default     = ""
+}

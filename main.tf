@@ -71,6 +71,8 @@ resource "datadog_monitor" "generic_datadog_monitor" {
   timeout_h         = var.auto_resolve_time_h
 
   require_full_window = var.require_full_window
+  new_group_delay     = var.new_group_delay
+
 
   monitor_thresholds {
     critical = var.critical_threshold
@@ -81,10 +83,6 @@ resource "datadog_monitor" "generic_datadog_monitor" {
   monitor_threshold_windows {
     recovery_window = var.anomaly_recovery_window
     trigger_window  = var.anomaly_trigger_window
-  }
-
-  monitor_new_group_delay {
-    new_group_delay = var.new_group_delay
   }
 
   locked = var.locked

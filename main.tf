@@ -78,6 +78,11 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     ok       = var.ok_threshold
   }
 
+  monitor_threshold_windows {
+    recovery_window = var.anomaly_recovery_window
+    trigger_window  = var.anomaly_trigger_window
+  }
+
   locked = var.locked
 
   # We don't want to manage muted alerts in Terraform.

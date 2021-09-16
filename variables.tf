@@ -150,3 +150,13 @@ variable "custom_message" {
   type        = string
   default     = ""
 }
+
+variable "anomaly_trigger_window" {
+  description = "trigger_window value, e.g. last_15m Can only be used for anomaly monitors. https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor#nested-schema-for-monitor_threshold_windows"
+  default     = null
+}
+
+variable "anomaly_recovery_window" {
+  description = "recovery_window value, e.g. last_15m Can only be used for anomaly monitors. https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor#nested-schema-for-monitor_threshold_windows"
+  default     = null
+}

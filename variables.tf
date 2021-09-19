@@ -122,13 +122,15 @@ variable "locked" {
 }
 
 variable "name_prefix" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "Can be used to prefix to the Monitor name"
 }
 
 variable "name_suffix" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "Can be used to suffix to the Monitor name"
 }
 
 variable "priority" {

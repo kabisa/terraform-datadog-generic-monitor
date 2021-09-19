@@ -119,6 +119,7 @@ variable "notify_no_data" {
 variable "locked" {
   type    = bool
   default = true
+  description = "Makes sure only the creator or admin can modify the monitor"
 }
 
 variable "name_prefix" {

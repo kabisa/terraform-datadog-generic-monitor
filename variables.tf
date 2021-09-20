@@ -119,16 +119,19 @@ variable "notify_no_data" {
 variable "locked" {
   type    = bool
   default = true
+  description = "Makes sure only the creator or admin can modify the monitor"
 }
 
 variable "name_prefix" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "Can be used to prefix to the Monitor name"
 }
 
 variable "name_suffix" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "Can be used to suffix to the Monitor name"
 }
 
 variable "priority" {

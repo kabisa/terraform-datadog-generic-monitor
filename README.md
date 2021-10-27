@@ -48,7 +48,7 @@ No modules.
 | <a name="input_docs"></a> [docs](#input\_docs) | n/a | `string` | `""` | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | n/a | `bool` | `true` | no |
 | <a name="input_env"></a> [env](#input\_env) | n/a | `string` | n/a | yes |
-| <a name="input_locked"></a> [locked](#input\_locked) | n/a | `bool` | `true` | no |
+| <a name="input_locked"></a> [locked](#input\_locked) | Makes sure only the creator or admin can modify the monitor | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | n/a | `string` | n/a | yes |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | Can be used to prefix to the Monitor name | `string` | `""` | no |
 | <a name="input_name_suffix"></a> [name\_suffix](#input\_name\_suffix) | Can be used to suffix to the Monitor name | `string` | `""` | no |

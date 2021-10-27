@@ -83,9 +83,7 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     trigger_window  = var.anomaly_trigger_window
   }
 
-  monitor_new_group_delay {
-    new_group_delay = var.new_group_delay
-  }
+  new_host_delay = var.new_group_delay
 
   locked = var.locked
 

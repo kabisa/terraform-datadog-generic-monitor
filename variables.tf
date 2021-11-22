@@ -22,7 +22,8 @@ variable "service" {
 }
 
 variable "service_display_name" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "query" {

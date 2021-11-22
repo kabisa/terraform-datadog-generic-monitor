@@ -63,7 +63,7 @@ No modules.
 | <a name="input_recovery_message"></a> [recovery\_message](#input\_recovery\_message) | n/a | `string` | `""` | no |
 | <a name="input_require_full_window"></a> [require\_full\_window](#input\_require\_full\_window) | n/a | `bool` | `true` | no |
 | <a name="input_service"></a> [service](#input\_service) | n/a | `string` | n/a | yes |
-| <a name="input_service_display_name"></a> [service\_display\_name](#input\_service\_display\_name) | n/a | `string` | n/a | yes |
+| <a name="input_service_display_name"></a> [service\_display\_name](#input\_service\_display\_name) | n/a | `string` | `null` | no |
 | <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `"metric alert"` | no |
 | <a name="input_warning_threshold"></a> [warning\_threshold](#input\_warning\_threshold) | n/a | `number` | `null` | no |
 

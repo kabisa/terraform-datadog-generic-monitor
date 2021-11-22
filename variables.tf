@@ -21,6 +21,10 @@ variable "service" {
   type = string
 }
 
+variable "service_display_name" {
+  type = string
+}
+
 variable "query" {
   type = string
 }
@@ -117,8 +121,8 @@ variable "notify_no_data" {
 }
 
 variable "locked" {
-  type    = bool
-  default = true
+  type        = bool
+  default     = true
   description = "Makes sure only the creator or admin can modify the monitor"
 }
 

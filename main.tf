@@ -39,13 +39,14 @@ locals {
       ""
     )
   ]
+  service_display_name = var.service_display_name != null ? var.service_display_name : var.service
 }
 
 resource "datadog_monitor" "generic_datadog_monitor" {
   count = var.enabled ? 1 : 0
   name = join(" - ", compact([
     var.name_prefix,
-    var.service,
+    local.service_display_name,
     var.name,
     var.name_suffix
   ]))

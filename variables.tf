@@ -26,6 +26,11 @@ variable "service" {
   type        = string
 }
 
+variable "service_display_name" {
+  type    = string
+  default = null
+}
+
 variable "query" {
   description = "Query that's based on a metric to be used to raise an alert"
   type        = string

@@ -21,7 +21,7 @@ Pre-commit:
 
 | Name | Version |
 |------|---------|
-| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.4.0 |
+| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.6.0 |
 
 ## Modules
 
@@ -63,6 +63,7 @@ No modules.
 | <a name="input_recovery_message"></a> [recovery\_message](#input\_recovery\_message) | Recovery message to be sent when the alert threshold is no longer hit | `string` | `""` | no |
 | <a name="input_require_full_window"></a> [require\_full\_window](#input\_require\_full\_window) | n/a | `bool` | `true` | no |
 | <a name="input_service"></a> [service](#input\_service) | Service name of what you're monitoring. This also sets the service:<service> tag on the monitor | `string` | n/a | yes |
+| <a name="input_service_display_name"></a> [service\_display\_name](#input\_service\_display\_name) | n/a | `string` | `null` | no |
 | <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `"metric alert"` | no |
 | <a name="input_warning_threshold"></a> [warning\_threshold](#input\_warning\_threshold) | n/a | `number` | `null` | no |
 

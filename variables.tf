@@ -1,56 +1,73 @@
 variable "alerting_enabled" {
-  type    = bool
-  default = true
+  description = "If set to false no alerts will be sent based on this monitor"
+  type        = bool
+  default     = true
 }
 
 variable "enabled" {
-  type    = bool
-  default = true
+  description = "If set to false the monitor resource will not be created"
+  type        = bool
+  default     = true
 }
 
 variable "notification_channel" {
-  type    = string
-  default = ""
+  description = "Channel to which datadog sends alerts, will be overridden by alerting_enabled if that's set to false"
+  type        = string
+  default     = ""
 }
 
 variable "name" {
-  type = string
+  description = "Name that the monitor should get. Will be automatically prefixed with the Service name. Also name_suffix and name_prefix have an effect on the eventual name. It's best set this property to a value that best describes the concern you're trying to cover with the monitor. Eg. Connection Available"
+  type        = string
 }
 
 variable "service" {
-  type = string
+  description = "Service name of what you're monitoring. This also sets the service:<service> tag on the monitor"
+  type        = string
+}
+
+variable "service_display_name" {
+  type    = string
+  default = null
 }
 
 variable "query" {
-  type = string
+  description = "Query that's based on a metric to be used to raise an alert"
+  type        = string
 }
 
 variable "alert_message" {
-  type = string
+  description = "Message to be sent when the alert threshold is hit"
+  type        = string
 }
 
 variable "recovery_message" {
-  type    = string
-  default = ""
+  description = "Recovery message to be sent when the alert threshold is no longer hit"
+  type        = string
+  default     = ""
 }
 
 variable "note" {
-  type    = string
-  default = ""
+  description = "Field in the alert message that can be used to bring something to the attention of the engineer handling the alert"
+  type        = string
+  default     = ""
 }
 
 variable "docs" {
-  type    = string
-  default = ""
+  description = "Field in the alert message that can be used to document why the alert was sent or what to do. It's best to include links to authoritative resources about what's being monitored. Try to capture why and what the engineer should do with this message"
+  type        = string
+  default     = ""
 }
 
 variable "env" {
-  type = string
+  description = "This refers to the environment or which stage of deployment this monitor is checking. Good values are prd, acc, tst, dev..."
+  type        = string
 }
 
 variable "additional_tags" {
-  type    = list(string)
-  default = []
+  description = "Additional tags to set on the monitor. Good tagging can be hard but very useful to make cross sections of the environment. Datadog has a few default tags. https://docs.datadoghq.com/getting_started/tagging/ is a good place to start reading about tags"
+  type        = list(string)
+  default     = []
 }
 
 variable "require_full_window" {
@@ -112,40 +129,38 @@ variable "no_data_timeframe" {
 }
 
 variable "notify_no_data" {
-  type    = bool
-  default = false
+  description = "Do you want an alert when the monitoring stops sending data?"
+  type        = bool
+  default     = false
 }
 
 variable "locked" {
-  type    = bool
-  default = true
   description = "Makes sure only the creator or admin can modify the monitor"
+  type        = bool
+  default     = true
 }
 
 variable "name_prefix" {
+  description = "Can be used to prefix to the Monitor name"
   type        = string
   default     = ""
-  description = "Can be used to prefix to the Monitor name"
 }
 
 variable "name_suffix" {
+  description = "Can be used to suffix to the Monitor name"
   type        = string
   default     = ""
-  description = "Can be used to suffix to the Monitor name"
 }
 
 variable "priority" {
   description = "Number from 1 (high) to 5 (low)."
-
-  type    = number
-  default = null
+  type        = number
 }
 
 variable "auto_resolve_time_h" {
   description = "Time of hours after which a triggered monitor that receives no data is automatically resolved."
-
-  type    = number
-  default = null
+  type        = number
+  default     = null
 }
 
 variable "custom_message" {

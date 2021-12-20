@@ -39,13 +39,14 @@ locals {
       ""
     )
   ]
+  service_display_name = var.service_display_name != null ? var.service_display_name : var.service
 }
 
 resource "datadog_monitor" "generic_datadog_monitor" {
   count = var.enabled ? 1 : 0
   name = join(" - ", compact([
     var.name_prefix,
-    var.service,
+    local.service_display_name,
     var.name,
     var.name_suffix
   ]))
@@ -71,6 +72,7 @@ resource "datadog_monitor" "generic_datadog_monitor" {
   timeout_h         = var.auto_resolve_time_h
 
   require_full_window = var.require_full_window
+  new_group_delay     = var.new_group_delay
 
   monitor_thresholds {
     critical = var.critical_threshold
@@ -83,16 +85,5 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     trigger_window  = var.anomaly_trigger_window
   }
 
-  monitor_new_group_delay {
-    new_group_delay = var.new_group_delay
-  }
-
   locked = var.locked
-
-  # We don't want to manage muted alerts in Terraform.
-  lifecycle {
-    ignore_changes = [
-      silenced
-    ]
-  }
 }

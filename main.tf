@@ -75,9 +75,11 @@ resource "datadog_monitor" "generic_datadog_monitor" {
   new_group_delay     = var.new_group_delay
 
   monitor_thresholds {
-    critical = var.critical_threshold
-    warning  = var.warning_threshold
-    ok       = var.ok_threshold
+    critical          = var.critical_threshold
+    critical_recovery = var.critical_recovery
+    warning           = var.warning_threshold
+    warning_recovery  = var.warning_recovery
+    ok                = var.ok_threshold
   }
 
   monitor_threshold_windows {

@@ -85,6 +85,16 @@ variable "warning_threshold" {
   default = null
 }
 
+variable "critical_recovery" {
+  type    = number
+  default = null
+}
+
+variable "warning_recovery" {
+  type    = number
+  default = null
+}
+
 variable "ok_threshold" {
   type    = number
   default = null

@@ -21,7 +21,7 @@ Pre-commit:
 
 | Name | Version |
 |------|---------|
-| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.6.0 |
+| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.8.1 |
 
 ## Modules
 
@@ -43,6 +43,7 @@ No modules.
 | <a name="input_anomaly_recovery_window"></a> [anomaly\_recovery\_window](#input\_anomaly\_recovery\_window) | recovery\_window value, e.g. last\_15m Can only be used for anomaly monitors. https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor#nested-schema-for-monitor_threshold_windows | `any` | `null` | no |
 | <a name="input_anomaly_trigger_window"></a> [anomaly\_trigger\_window](#input\_anomaly\_trigger\_window) | trigger\_window value, e.g. last\_15m Can only be used for anomaly monitors. https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor#nested-schema-for-monitor_threshold_windows | `any` | `null` | no |
 | <a name="input_auto_resolve_time_h"></a> [auto\_resolve\_time\_h](#input\_auto\_resolve\_time\_h) | Time of hours after which a triggered monitor that receives no data is automatically resolved. | `number` | `null` | no |
+| <a name="input_critical_recovery"></a> [critical\_recovery](#input\_critical\_recovery) | n/a | `number` | `null` | no |
 | <a name="input_critical_threshold"></a> [critical\_threshold](#input\_critical\_threshold) | n/a | `number` | `null` | no |
 | <a name="input_custom_message"></a> [custom\_message](#input\_custom\_message) | This field give the option to put in custom text. Both 'note' and 'docs' are prefixed in the template with 'note:' and 'docs:' respectively. 'custom\_message' allows for free format | `string` | `""` | no |
 | <a name="input_docs"></a> [docs](#input\_docs) | Field in the alert message that can be used to document why the alert was sent or what to do. It's best to include links to authoritative resources about what's being monitored. Try to capture why and what the engineer should do with this message | `string` | `""` | no |
@@ -65,6 +66,7 @@ No modules.
 | <a name="input_service"></a> [service](#input\_service) | Service name of what you're monitoring. This also sets the service:<service> tag on the monitor | `string` | n/a | yes |
 | <a name="input_service_display_name"></a> [service\_display\_name](#input\_service\_display\_name) | n/a | `string` | `null` | no |
 | <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `"metric alert"` | no |
+| <a name="input_warning_recovery"></a> [warning\_recovery](#input\_warning\_recovery) | n/a | `number` | `null` | no |
 | <a name="input_warning_threshold"></a> [warning\_threshold](#input\_warning\_threshold) | n/a | `number` | `null` | no |
 
 ## Outputs

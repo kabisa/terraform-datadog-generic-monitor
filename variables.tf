@@ -126,7 +126,8 @@ variable "type" {
         "service check",
         "rum alert",
         "event alert",
-        "event-v2 alert"
+        "event-v2 alert",
+        "slo alert",
       ],
       var.type
     )

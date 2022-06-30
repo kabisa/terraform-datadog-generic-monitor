@@ -47,6 +47,12 @@ variable "recovery_message" {
   default     = ""
 }
 
+variable "no_data_message" {
+  description = "Message to be sent when the monitor is no longer receiving data"
+  type        = string
+  default     = ""
+}
+
 variable "note" {
   description = "Field in the alert message that can be used to bring something to the attention of the engineer handling the alert"
   type        = string

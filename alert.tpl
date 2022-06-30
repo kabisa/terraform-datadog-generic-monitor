@@ -4,6 +4,11 @@ ${alert_message}
 {{#is_recovery}}
 ${recovery_message}
 {{/is_recovery}}
+%{ if no_data_message != "" ~}
+{{#is_no_data}}
+${no_data_message}
+{{/is_no_data}}
+%{ endif ~}
 %{ if note != "" ~}
 
 Note: ${note}

@@ -15,13 +15,13 @@ Pre-commit:
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_datadog"></a> [datadog](#requirement\_datadog) | ~> 3.4 |
+| <a name="requirement_datadog"></a> [datadog](#requirement\_datadog) | ~> 3.12 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.8.1 |
+| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.12.0 |
 
 ## Modules
 

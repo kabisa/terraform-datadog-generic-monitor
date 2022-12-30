@@ -88,5 +88,5 @@ resource "datadog_monitor" "generic_datadog_monitor" {
     trigger_window  = var.anomaly_trigger_window
   }
 
-  locked = var.locked
+  restricted_roles = var.restricted_roles
 }

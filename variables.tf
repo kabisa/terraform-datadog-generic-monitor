@@ -151,10 +151,10 @@ variable "notify_no_data" {
   default     = false
 }
 
-variable "locked" {
-  description = "Makes sure only the creator or admin can modify the monitor"
-  type        = bool
-  default     = true
+variable "restricted_roles" {
+  description = "A list of unique role identifiers to define which roles are allowed to edit the monitor."
+  type        = list(string)
+  default     = []
 }
 
 variable "name_prefix" {
